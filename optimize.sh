@@ -10,7 +10,6 @@ echo -e "\tWorkload: ${WORKLOAD}"
 echo -e "\tOutput Dir: ${OUTPUT_DIR}"
 
 mkdir -p "${OUTPUT_DIR}"
-
 mkdir -p input/
 
 # Extract the workload.
@@ -22,5 +21,6 @@ tar xzf "${WORKLOAD}" --directory input/
 cd calcite_app/
 ./gradlew build
 ./gradlew shadowJar
-java -jar build/libs/calcite_app-1.0-SNAPSHOT-all.jar "./input/" "${OUTPUT_DIR}"
+./gradlew --stop
+java -Xmx4096m -jar build/libs/calcite_app-1.0-SNAPSHOT-all.jar "../input/queries" "../${OUTPUT_DIR}"
 cd -

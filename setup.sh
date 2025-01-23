@@ -10,5 +10,4 @@ unzip duckdb_cli-linux-amd64.zip
 rm duckdb_cli-linux-amd64.zip
 
 # Download the workload.
-# Note: currently hosted on Wan's Google Drive, link may be subject to change.
-wget --quiet --no-check-certificate -r 'https://drive.usercontent.google.com/download?export=download&id=1f4HtlX6Y363VpmKJUmAhkdoXcfpUx_OP&confirm=yes' -O workload.tgz
+wget --quiet https://db.cs.cmu.edu/files/15799-s25/workload.tgz

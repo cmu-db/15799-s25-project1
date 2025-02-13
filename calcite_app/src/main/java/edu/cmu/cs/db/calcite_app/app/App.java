@@ -23,7 +23,7 @@ public class App
         StringBuilder resultSetString = new StringBuilder();
         for (int i = 1; i <= columnCount; i++) {
             if (i > 1) {
-                resultSetString.append(", ");
+                resultSetString.append(",");
             }
             resultSetString.append(metaData.getColumnName(i));
         }
@@ -33,7 +33,13 @@ public class App
                 if (i > 1) {
                     resultSetString.append(", ");
                 }
-                resultSetString.append(resultSet.getString(i));
+                String s = resultSet.getString(i);
+                s = s.replace("\n", "\\n");
+                s = s.replace("\r", "\\r");
+                s = s.replace("\"", "\"\"");
+                resultSetString.append("\"");
+                resultSetString.append(s);
+                resultSetString.append("\"");
             }
             resultSetString.append("\n");
         }

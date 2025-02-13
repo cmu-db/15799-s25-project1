@@ -31,7 +31,7 @@ public class App
         while (resultSet.next()) {
             for (int i = 1; i <= columnCount; i++) {
                 if (i > 1) {
-                    resultSetString.append(", ");
+                    resultSetString.append(",");
                 }
                 String s = resultSet.getString(i);
                 s = s.replace("\n", "\\n");
